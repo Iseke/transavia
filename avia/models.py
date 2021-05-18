@@ -61,3 +61,15 @@ class Airport(models.Model):
 
     def get_type_code(self):
         return self.type_code
+
+    def to_json(self):
+        return {
+            'city': {
+                'city_code': self.city_code.city_code,
+                'city_name': self.city_code.city_name
+            },
+            'airport': {
+                'airport_code': self.airport_code,
+                'airport_name': self.airport_name
+            }
+        }
